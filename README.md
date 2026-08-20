@@ -9,8 +9,9 @@ sudo mkdir -p /tmp/backup`
 2. ` Проверяем права доступа (директория должна принадлежать пользователю dz)
 sudo chown dz:dz /tmp/backup`
 3. `Команда rsync
-rsync -avzh --delete --checksum --exclude='.*' /home/dz/ /tmp/backup/
-Разбор команды:
+rsync -avzh --delete --checksum --exclude='.*' /home/dz/ /tmp/backup/`
+
+`Разбор команды:
 -a — архивный режим (сохраняет права, ссылки, временные метки)
 -v — подробный вывод (verbose)
 -z — сжатие при передаче
@@ -18,6 +19,7 @@ rsync -avzh --delete --checksum --exclude='.*' /home/dz/ /tmp/backup/
 --delete — удаляет файлы в приемнике, которых нет в источнике (делает зеркальной)
 --checksum — сравнивает хэш-суммы, а не только размер и время
 --exclude='.*' — исключает все скрытые директории и файлы`
+`
 
 Скриншоты:
 ![Задание 1](./img/1.png);
@@ -35,14 +37,17 @@ rsync -avzh --delete --checksum --exclude='.*' /home/dz/ /tmp/backup/
 ```
 ./backup_home.sh
 ```
-делаем его исполняемым
+`делаем его исполняемым
 chmod +x /home/dz/scripts/backup_home.sh`
+
 2. `Открываем crontab для пользователя dz
 crontab -e`
+
 3. `Резервное копирование домашней директории каждый день в 00:00
 0 0 * * * /home/dz/scripts/backup_home.sh
 Или для тестирования каждую минуту (удалите после теста)
-* * * * * /home/dz/scripts/backup_home.sh`
+* * * * * /home/dz/scripts/backup_home.sh``
+
 `Проверяем, что задача добавлена
 crontab -l
 Проверяем, запущен ли cron
