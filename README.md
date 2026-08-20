@@ -35,7 +35,7 @@ rsync -avzh --delete --checksum --exclude='.*' /home/dz/ /tmp/backup/`
 
 1. `Создаем скрипт резервного копирования
 
-`https://github.com/rooot-root/39_backup_reserv/blob/main/backup_home.sh`
+https://github.com/rooot-root/39_backup_reserv/blob/main/backup_home.sh
 
 `делаем его исполняемым
 chmod +x /home/dz/scripts/backup_home.sh`
